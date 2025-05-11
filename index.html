@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+<title>Website Pemutar Lagu</title>
+<style>
+  body {
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 600px;
+    max-width: 350px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  h1 {
+    margin-top: 40px;
+    font-size: 1.8rem;
+    text-align: center;
+  }
+  audio {
+    width: 100%;
+    margin-top: 20px;
+    outline: none;
+    border-radius: 10px;
+    background: rgba(255,255,255,0.15);
+  }
+  .player {
+    box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+    background: rgba(0,0,0,0.35);
+    border-radius: 12px;
+    padding: 20px;
+    width: 90%;
+  }
+  label {
+    font-size: 1.1rem;
+  }
+  select {
+    width: 100%;
+    padding: 8px 12px;
+    font-size: 1rem;
+    border-radius: 8px;
+    border: none;
+    margin-top: 5px;
+    margin-bottom: 15px;
+  }
+  footer {
+    margin-top: auto;
+    margin-bottom: 20px;
+    font-size: 0.9rem;
+    opacity: 0.7;
+  }
+</style>
+</head>
+<body>
+  <h1>Website Pemutar Lagu</h1>
+  <div class="player">
+    <label for="songSelect">Pilih Lagu:</label>
+    <select id="songSelect" aria-label="Pilih lagu">
+      <option value="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3">SoundHelix Song 1</option>
+      <option value="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3">SoundHelix Song 2</option>
+      <option value="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-3.mp3">SoundHelix Song 3</option>
+    </select>
+    <audio id="audioPlayer" controls aria-label="Pemutar lagu">
+      <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg" />
+      Browser Anda tidak mendukung elemen audio.
+    </audio>
+  </div>
+  <footer>Responsive dan cocok untuk layar mobile (max 350x600 px).</footer>
+  <script>
+    const songSelect = document.getElementById("songSelect");
+    const audioPlayer = document.getElementById("audioPlayer");
+
+    songSelect.addEventListener("change", () => {
+      audioPlayer.src = songSelect.value;
+      audioPlayer.play();
+    });
+  </script>
+</body>
+</html>
+
+```
